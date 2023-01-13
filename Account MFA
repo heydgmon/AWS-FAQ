@@ -1,0 +1,22 @@
+AWS 루트 계정의 MFA를 분실 및 기존 전화번호 사용이 불가할 경우 아래와 같은 절차를 통해 초기화가 가능합니다.
+ 
+1.MFA입력 창에서 [MFA코드 문제 해결] 클릭
+2.[대체 팩터를 사용한 로그인] 선택
+3.이메일 주소를 통해 1단계(이메일) 인증 진행
+4.전화번호 인증을 통해 2단계 인증 진행
+4-1.전화번호 인증이 안되는 경우 [AWS Support로 문의하십시오.] 클릭
+5.[Lost or unusable Multi-Factor Authentication (MFA) device] 화면에서 [I'm still having problems and would like to contact AWS Support.] 클릭
+6.
+"Request assistance with lost or unusable MFA device" 폼에 맞게 값을 기재 후 [Submit] 클릭
+- Problem with authentication device (인증 장치 문제)
+- AWS account root user email address (Root Account 이메일 주소)
+- AWS account ID (AWS Account ID [숫자 12자리])
+- Full name (성함)
+- Alternate phone number where you can be reached. (국가 번호가 포함된 연락 가능한 대체 전화번호) [ex. +82-10-1234-5678]
+- Country associated with your phone number (위 기재된 전화번호가 연결된 국가)
+- Support language (지원 엔지니어 언어, 영어 / 일본어 선택)
+
+7.이후 담당 엔지니어가 기재한 번호로 연락을 드리며, 담당 엔지니어 가이드에 따라 절차를 진행하면 됩니다. (선택한 언어로 소통 필요)
+
+[참고 링크]
+루트 사용자 MFA 디바이스 복구- https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_credentials_mfa_lost-or-broken.html
