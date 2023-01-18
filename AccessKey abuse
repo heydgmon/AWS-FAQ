@@ -1,0 +1,27 @@
+AWS 계정에서 무단 활동 발견 시 다음과 같이 조치합니다.[1]
+  ㉠노출된 계정 및 액세스 키 식별
+  ㉡노출된 계정 액세스 키 교체 및 삭제
+  ㉢AWS CloudTrail 로그에서 승인되지 않은 활동이 있는지 확인
+  ㉣알 수 없거나 승인되지 않은 리소스 모두 삭제
+  
+  ㉡노출된 계정 액세스 키 교체 및 삭제
+  1.새로운 AWS 액세스 키 페어를 생성합니다.
+  2.기존 유출된 액세스 키를 사용하던 애플리케이션을 새로운 액세스 키를 사용하도록 수정합니다.
+  3.기존 유출된 액세스 키를 비활성화합니다.(삭제가 아닌 비활성화를 진행합니다)
+  4.애플리케이션에 문제가 없는지 확인합니다. 문제가 생긴 경우 기존 액세스 키를 일시적으로 활성화 하여 문제를 해결합니다.
+  5.기존 유출된 액세스 키를 비활성화한 후 애플리케이션이 정상적으로 작동하는 경우 기존 유출된 액세스 키를 삭제합니다.
+   
+※차후 액세스 키 유출 방지 및 액세스 키 유출 시 조기 인식을 위해 다음과 같은 조치를 취할 수 있습니다.
+1.애플리케이션 코드 또는 코드 리포지토리에 장기 액세스 키 및 보안 액세스 키를 포함하지 마십시오.
+액세스 키를 생성할 때도 경고하듯이 하드코딩 된 액세스 키가 public repository에 업로드 되어 유출되지 않도록 합니다.
+소스코드 내 액세스 키를 하드코딩 하는 대신 AWS Secrets Manager[3]를 통해 필요 시 Secret을 검색하여 사용할 수 있습니다.
+ 
+2.AWS Eventbridge 및 AWS SNS 연계를 통해 IAM 리소스 생성 및 변경, 사용하지 않는 리전에 인스턴스 생성과 같은 상황에 알림을 발생시킬 수 있습니다.[2]
+ 
+3.IAM 사용자 및 AWS 계정 루트 사용자에 대해 가상 MFA를 활성화 하여 권한이 없는 사용자가 보안 토큰 없이 계정에 로그인하지 못하도록 방지할 수 있습니.[3]
+ 
+  
+[참고 링크]
+[1] - https://aws.amazon.com/ko/premiumsupport/knowledge-center/potential-account-compromise/ 
+[2] - https://aws.amazon.com/ko/premiumsupport/knowledge-center/iam-eventbridge-sns-rule/ 
+[3] - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable.html 
